@@ -74,6 +74,13 @@ button,.btn{font:inherit;font-weight:900;font-size:1.5rem;text-transform:upperca
 .row{display:flex;gap:14px;align-items:center;justify-content:center}
 .row button{width:48px;height:48px;padding:0;font-size:1.8rem;line-height:1}
 .row b{min-width:2ch;font-size:2rem}
+.dd{position:relative;max-width:360px;margin:0 auto;text-align:left}
+.ddbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:1.25rem;text-transform:none;background:#fff;border-radius:14px;padding:10px 14px}
+.ddlist{margin-top:8px;background:#fff;border:3px solid var(--ink);border-radius:14px;padding:4px 14px 10px;max-height:46vh;overflow:auto;box-shadow:4px 4px 0 var(--pink)}
+.ddlist[hidden]{display:none}
+.ddgrp{margin:10px 0 0;font-weight:900;text-transform:uppercase;color:#c2185b}
+.ddlist label{display:flex;align-items:center;gap:12px;padding:8px 0;cursor:pointer;font-size:1.25rem;border-bottom:1px dashed #ddd}
+.ddlist input{width:22px;height:22px;padding:0;margin:0;accent-color:var(--pink);flex:none}
 .err{color:#b00020;min-height:1.4em;margin:8px 0 0}
 .count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 6px}
 .count div{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:4px 2px;box-shadow:3px 3px 0 var(--pink)}
@@ -169,8 +176,30 @@ button,.btn{font:inherit;font-weight:900;font-size:1.5rem;text-transform:upperca
       <b id="qty">1</b>
       <button type="button" id="plus" aria-label="Más">+</button>
     </div>
-    <label class="pill sm" for="drink">¿Qué vas a traer para tomar?</label>
-    <input id="drink" type="text" placeholder="Ej: fernet, coca, baggio…" maxlength="60">
+    <span class="pill sm" id="drinkLbl">¿Qué vas a traer para tomar?</span>
+    <div class="dd">
+      <button type="button" class="ddbtn" id="ddbtn" aria-haspopup="true" aria-expanded="false" aria-labelledby="drinkLbl ddtxt"><span id="ddtxt">Elegí tu bebida (una o más)</span><span aria-hidden="true">▾</span></button>
+      <div class="ddlist" id="ddlist" role="group" aria-labelledby="drinkLbl" hidden>
+        <p class="ddgrp">Con alcohol</p>
+        <label><input type="checkbox" value="Fernet"> Fernet</label>
+        <label><input type="checkbox" value="Vodka"> Vodka</label>
+        <label><input type="checkbox" value="Gin"> Gin</label>
+        <label><input type="checkbox" value="Campari"> Campari</label>
+        <label><input type="checkbox" value="Gancia"> Gancia</label>
+        <label><input type="checkbox" value="Vino tinto"> Vino tinto</label>
+        <label><input type="checkbox" value="Vino blanco"> Vino blanco</label>
+        <label><input type="checkbox" value="Cerveza"> Cerveza</label>
+        <label><input type="checkbox" value="Espumante"> Espumante</label>
+        <p class="ddgrp">Para mezclar</p>
+        <label><input type="checkbox" value="Coca-Cola (la original, no Zero)"> Coca-Cola (la original, no Zero)</label>
+        <label><input type="checkbox" value="Speed"> Speed</label>
+        <label><input type="checkbox" value="Sprite"> Sprite</label>
+        <label><input type="checkbox" value="Gaseosa de pomelo"> Gaseosa de pomelo</label>
+        <label><input type="checkbox" value="Jugo (Baggio/Cepita)"> Jugo (Baggio/Cepita)</label>
+        <p class="ddgrp">Otra</p>
+        <label><input type="checkbox" value="Otra"> Otra</label>
+      </div>
+    </div>
     <p class="err" id="err" aria-live="polite"></p>
     <p style="margin:12px 0 0"><button class="go" id="send" type="button" disabled>Confirmar mi lugar</button></p>
   </section>
@@ -281,11 +310,24 @@ yes.addEventListener('click', () => {
 let qty = 1;
 $('plus').onclick = () => { qty = Math.min(6, qty+1); $('qty').textContent = qty; };
 $('minus').onclick = () => { qty = Math.max(1, qty-1); $('qty').textContent = qty; };
-$('name').addEventListener('input', () => { $('send').disabled = $('name').value.trim().length < 2; });
+const ddb = $('ddbtn'), ddl = $('ddlist');
+const checks = () => [...ddl.querySelectorAll('input:checked')].map(i => i.value);
+function validar(){
+  const sel = checks();
+  const nombreOk = $('name').value.trim().length >= 2;
+  $('ddtxt').textContent = sel.length === 0 ? 'Elegí tu bebida (una o más)' : (sel.length === 1 ? sel[0] : sel.length + ' bebidas elegidas');
+  $('send').disabled = !nombreOk || sel.length === 0;
+  $('err').textContent = (nombreOk && sel.length === 0) ? 'Marcá al menos una bebida para confirmar.' : '';
+}
+function cerrarDD(){ ddl.hidden = true; ddb.setAttribute('aria-expanded','false'); }
+ddb.addEventListener('click', () => { const abrir = ddl.hidden; ddl.hidden = !abrir; ddb.setAttribute('aria-expanded', abrir); });
+ddl.addEventListener('change', validar);
+$('name').addEventListener('input', validar);
+document.addEventListener('keydown', e => { if(e.key === 'Escape') cerrarDD(); });
 
 $('send').addEventListener('click', async () => {
   const nombre = $('name').value.trim();
-  if(nombre.length < 2) return;
+  if(nombre.length < 2 || checks().length === 0) return;
   const btn = $('send');
   btn.disabled = true; btn.textContent = 'Enviando…'; $('err').textContent = '';
   const data = {
@@ -294,7 +336,7 @@ $('send').addEventListener('click', async () => {
     from_name: 'Invitación Sonia 30',
     Nombre: nombre,
     Personas: qty,
-    Bebida: $('drink').value.trim() || '(no dijo)'
+    Bebidas: checks().join(', ')
   };
   try{
     if(ACCESS_KEY){
