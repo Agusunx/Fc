@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sonia cumple 30 🍸</title>
+<meta name="theme-color" content="#f4f4f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Bagel+Fat+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f4f1; --ink:#141414; --pink:#ff5fa3; --pill:#ff6fa5; --tape:#dccfb8; --gold:#ffcf4d;
+  --txt:'Londrina Solid','Arial Narrow','Impact',sans-serif;
+  --num:'Bagel Fat One','Arial Rounded MT Bold','Trebuchet MS',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;font-family:var(--txt);font-size:1.25rem;color:var(--ink);overflow-x:hidden;
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+main{max-width:520px;margin:0 auto;padding:16px 20px 60px;text-align:center}
+
+/* ===== Encabezado tipo invitación ===== */
+.hero{position:relative;aspect-ratio:1/1.12;container-type:inline-size;margin-bottom:4px}
+.hero>*{position:absolute}
+.conf{right:0;top:0;margin:0;font-weight:900;font-size:5.4cqw;text-transform:uppercase;letter-spacing:.02em}
+.conf i{display:inline-block;font-style:normal;animation:nudge 1s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateY(1.2cqw)}}
+.rays{left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.tape{background:var(--tape);display:flex;align-items:center;justify-content:center;font-weight:900;text-transform:uppercase;white-space:nowrap;
+  clip-path:polygon(0 10%,2% 0,98% 5%,100% 90%,97% 100%,3% 94%)}
+.t1{left:20cqw;top:11cqw;width:78cqw;height:17cqw;font-size:7.6cqw;transform:rotate(6deg);animation:wig1 5s ease-in-out infinite}
+.t2{left:30cqw;top:53cqw;width:63cqw;height:15cqw;font-size:7cqw;transform:rotate(-3deg);animation:wig2 5s ease-in-out infinite}
+@keyframes wig1{50%{transform:rotate(4.5deg)}}
+@keyframes wig2{50%{transform:rotate(-1.5deg)}}
+.n30{left:39cqw;top:19cqw;font-family:var(--num);font-size:35cqw;line-height:1;color:var(--pink);
+  -webkit-text-stroke:.8cqw var(--gold);paint-order:stroke fill;animation:pop 2.6s ease-in-out infinite}
+@keyframes pop{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(2deg) scale(1.06)}}
+.glass{left:-4cqw;top:30cqw;width:52cqw;overflow:visible}
+.disco{right:-8cqw;top:49cqw;width:50cqw;overflow:visible;z-index:3}
+.gsw{transform-origin:115px 310px;animation:sway 4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.bub{animation:rise 2.6s linear infinite;transform-box:fill-box}
+.bub:nth-of-type(2n){animation-delay:.9s}.bub:nth-of-type(3n){animation-delay:1.6s}
+@keyframes rise{0%{transform:translateY(14px);opacity:0}30%{opacity:1}100%{transform:translateY(-34px);opacity:0}}
+.dsw{transform-origin:40px 4px;animation:dsw 3.6s ease-in-out infinite}
+@keyframes dsw{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.tile{fill:var(--pill);animation:tw 1.3s ease-in-out infinite}
+.tile:nth-of-type(3n){animation-delay:.45s}.tile:nth-of-type(3n+1){animation-delay:.9s}
+@keyframes tw{0%,100%{opacity:0}50%{opacity:1}}
+.star{width:10cqw;height:10cqw;overflow:visible;animation:twk 2.2s ease-in-out infinite}
+.star .sh{fill:var(--ink)}.star .fl{fill:var(--pink)}
+@keyframes twk{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.25) rotate(12deg)}}
+
+/* ===== Pasos ===== */
+.step{display:none}
+.step.on{display:block;animation:in .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes in{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+.pill{display:inline-block;background:var(--pill);border-radius:12px;padding:.1em 1.4em;font-weight:900;font-size:1.7rem;text-transform:uppercase;margin:14px 0 4px;line-height:1.3}
+.pill.sm{font-size:1.3rem;margin-top:16px}
+.big{font-weight:900;font-size:1.75rem;text-transform:uppercase;margin:2px 0 6px;line-height:1.15}
+.small{font-size:1.1rem;margin:2px 0}
+input{width:100%;font:inherit;font-weight:900;font-size:1.3rem;padding:10px 14px;border-radius:14px;border:3px solid var(--ink);background:#fff;color:var(--ink);text-align:center}
+input::placeholder{color:#8a8a8a;font-weight:400}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:4px solid var(--pink);outline-offset:3px}
+button,.btn{font:inherit;font-weight:900;font-size:1.5rem;text-transform:uppercase;padding:10px 26px;border-radius:14px;border:3px solid var(--ink);color:var(--ink);background:var(--tape);cursor:pointer;text-decoration:none;display:inline-block}
+.go{background:var(--pink);box-shadow:4px 4px 0 var(--ink);transition:transform .15s}
+.go:hover:not(:disabled){transform:translate(-2px,-2px)}
+.go:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btns{display:flex;gap:18px;justify-content:center;align-items:center;margin-top:10px;min-height:70px}
+#no.run{position:fixed;z-index:20;transition:left .25s cubic-bezier(.3,1.6,.5,1),top .25s cubic-bezier(.3,1.6,.5,1)}
+.hint{min-height:1.6em;font-size:1.15rem}
+.row{display:flex;gap:14px;align-items:center;justify-content:center}
+.row button{width:48px;height:48px;padding:0;font-size:1.8rem;line-height:1}
+.row b{min-width:2ch;font-size:2rem}
+.err{color:#b00020;min-height:1.4em;margin:8px 0 0}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 6px}
+.count div{background:#fff;border:3px solid var(--ink);border-radius:14px;padding:4px 2px;box-shadow:3px 3px 0 var(--pink)}
+.count b{display:block;font-family:var(--num);font-weight:400;font-size:1.8rem;color:var(--pink);line-height:1.2}
+.count span{font-size:1rem;text-transform:uppercase}
+.map{color:var(--ink);font-weight:900;text-transform:uppercase;text-decoration-color:var(--pink);text-decoration-thickness:4px}
+.gift{background:var(--tape);clip-path:polygon(0 8%,2% 0,98% 4%,100% 92%,97% 100%,3% 95%);padding:16px 18px;margin:18px 0 6px;font-weight:900;font-size:1.35rem;text-transform:uppercase;transform:rotate(-1.5deg)}
+.hosts{text-align:right;font-style:italic;font-weight:900;margin:14px 0 0;text-transform:uppercase}
+#c{position:fixed;inset:0;pointer-events:none;z-index:30}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}#no.run{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="st" viewBox="0 0 100 100"><path d="M50 0Q55 45 100 50Q55 55 50 100Q45 55 0 50Q45 45 50 0Z"/></symbol></svg>
+
+<main>
+  <header class="hero">
+    <p class="conf">Confirmar asistencia <i>↓</i></p>
+
+    <svg class="rays" viewBox="0 0 100 112" aria-hidden="true" fill="none" stroke="#141414" stroke-width="1.3" stroke-linecap="round">
+      <path d="M21 8L26 13M29 4L30.5 10M16 16.5L24 17.5"/>
+    </svg>
+
+    <div class="tape t1"><span>¡Te invito a festejar</span></div>
+    <div class="n30" aria-label="30">30</div>
+    <div class="tape t2"><span>Mi cumpleaños!</span></div>
+
+    <svg class="glass" viewBox="0 0 240 340" aria-hidden="true" fill="none" stroke="#141414" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <g class="gsw">
+        <path d="M-6 90A46 46 0 0 1 86 90" stroke="#ff6fa5" stroke-width="7"/>
+        <path d="M40 44V90M16 64L64 116" stroke="#ff6fa5" stroke-width="6"/>
+        <path d="M40 112L196 112L115 205Z" fill="#ff5fa3" stroke="none"/>
+        <circle class="bub" cx="95" cy="140" r="5" fill="#fff" stroke="none"/>
+        <circle class="bub" cx="125" cy="130" r="4.5" fill="#fff" stroke="none"/>
+        <circle class="bub" cx="150" cy="148" r="5" fill="#fff" stroke="none"/>
+        <circle class="bub" cx="112" cy="165" r="4" fill="#fff" stroke="none"/>
+        <path d="M2 104H196"/>
+        <path d="M20 104L115 215L210 104"/>
+        <path d="M115 215V298"/>
+        <path d="M58 304Q115 292 172 304"/>
+        <path d="M168 40L100 176" stroke-width="7"/>
+      </g>
+    </svg>
+
+    <svg class="disco" viewBox="0 0 200 220" aria-hidden="true" fill="none" stroke="#ff6fa5" stroke-linecap="round">
+      <g class="dsw">
+        <path d="M40 4C42 24 84 30 104 52" stroke-width="5"/>
+        <defs><clipPath id="dc"><circle cx="105" cy="130" r="78"/></clipPath></defs>
+        <circle cx="105" cy="130" r="78" fill="#f6f6f3" stroke="none"/>
+        <g clip-path="url(#dc)" stroke-width="7">
+          <path d="M20 82H190M20 104H190M20 126H190M20 148H190M20 170H190M20 192H190"/>
+          <path d="M105 50V210"/>
+          <ellipse cx="105" cy="130" rx="18" ry="80"/>
+          <ellipse cx="105" cy="130" rx="40" ry="80"/>
+          <ellipse cx="105" cy="130" rx="62" ry="80"/>
+          <rect class="tile" x="86" y="86" width="14" height="14" stroke="none"/>
+          <rect class="tile" x="128" y="108" width="14" height="14" stroke="none"/>
+          <rect class="tile" x="64" y="130" width="14" height="14" stroke="none"/>
+          <rect class="tile" x="108" y="152" width="14" height="14" stroke="none"/>
+          <rect class="tile" x="150" y="150" width="14" height="14" stroke="none"/>
+          <rect class="tile" x="42" y="104" width="14" height="14" stroke="none"/>
+        </g>
+        <circle cx="105" cy="130" r="78" stroke-width="8"/>
+      </g>
+    </svg>
+
+    <svg class="star" style="right:2cqw;top:13cqw" viewBox="0 0 110 110" aria-hidden="true"><use class="sh" href="#st" x="8" y="8" width="100" height="100"/><use class="fl" href="#st" width="100" height="100"/></svg>
+    <svg class="star" style="right:14cqw;top:2cqw;width:6cqw;height:6cqw;animation-delay:.7s" viewBox="0 0 110 110" aria-hidden="true"><use class="sh" href="#st" x="8" y="8" width="100" height="100"/><use class="fl" href="#st" width="100" height="100"/></svg>
+    <svg class="star" style="right:12cqw;top:101cqw;width:12cqw;height:12cqw;animation-delay:.3s" viewBox="0 0 110 110" aria-hidden="true"><use class="sh" href="#st" x="8" y="8" width="100" height="100"/><use class="fl" href="#st" width="100" height="100"/></svg>
+    <svg class="star" style="right:2cqw;top:105cqw;width:7cqw;height:7cqw;animation-delay:1s" viewBox="0 0 110 110" aria-hidden="true"><use class="sh" href="#st" x="8" y="8" width="100" height="100"/><use class="fl" href="#st" width="100" height="100"/></svg>
+  </header>
+
+  <!-- PASO 1 -->
+  <section class="step on" id="s1">
+    <span class="pill">¿Venís al festejo de Sonia?</span>
+    <div class="btns" id="btns">
+      <button class="go" id="yes" type="button">¡Sí, obvio!</button>
+      <button id="no" type="button">No</button>
+    </div>
+    <div class="hint" id="hint" aria-live="polite"></div>
+  </section>
+
+  <!-- PASO 2 -->
+  <section class="step" id="s2">
+    <span class="pill">¡Esa es la actitud!</span>
+    <p class="small">Dejame tus datos así te anotamos.</p>
+    <label class="pill sm" for="name">¿Cómo te llamás?</label>
+    <input id="name" type="text" placeholder="Nombre y apellido" autocomplete="name" maxlength="60">
+    <span class="pill sm">¿Cuántos vienen?</span>
+    <div class="row">
+      <button type="button" id="minus" aria-label="Menos">−</button>
+      <b id="qty">1</b>
+      <button type="button" id="plus" aria-label="Más">+</button>
+    </div>
+    <label class="pill sm" for="drink">¿Qué vas a traer para tomar?</label>
+    <input id="drink" type="text" placeholder="Ej: fernet, coca, baggio…" maxlength="60">
+    <p class="err" id="err" aria-live="polite"></p>
+    <p style="margin:12px 0 0"><button class="go" id="send" type="button" disabled>Confirmar mi lugar</button></p>
+  </section>
+
+  <!-- PASO 3 -->
+  <section class="step" id="s3">
+    <span class="pill">¡Estás anotado/a!</span>
+    <div class="count" aria-label="Cuenta regresiva">
+      <div><b id="d">0</b><span>días</span></div>
+      <div><b id="h">0</b><span>horas</span></div>
+      <div><b id="m">0</b><span>min</span></div>
+      <div><b id="s">0</b><span>seg</span></div>
+    </div>
+    <span class="pill">¿Cuándo?</span>
+    <p class="big">Sábado 24 de octubre</p>
+    <span class="pill">¿A qué hora?</span>
+    <p class="big">21:00 hs</p>
+    <span class="pill">¿Dónde?</span>
+    <p class="big">Lisboa 357<br>Entre Algarrobo y Garibaldi</p>
+    <p class="small">Villa Luzuriaga</p>
+    <p class="small"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Lisboa+357+Villa+Luzuriaga" target="_blank" rel="noopener">Abrir en el mapa</a></p>
+    <span class="pill">Bebida x cabeza</span>
+    <p class="small">Traé una bebida por persona, la que quieras: con o sin alcohol.</p>
+    <div class="gift">🎁 No te olvides del regalo para la cumpleañera</div>
+  </section>
+</main>
+
+<script>
+// ====== EDITÁ ESTO ======
+// Clave de Web3Forms: te llega por mail al registrarte en web3forms.com con tu casilla.
+// Cada confirmación te va a llegar a ese mismo mail.
+const ACCESS_KEY = 'c337165c-b786-4b6f-b8bf-3e7d11c4dc5f';
+const FECHA = '2026-10-24T21:00:00';
+// ========================
+
+const $ = id => document.getElementById(id);
+function show(id){
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('on'));
+  $(id).classList.add('on');
+}
+
+// Cuenta regresiva
+const target = new Date(FECHA).getTime();
+function tick(){
+  let diff = Math.max(0, target - Date.now());
+  const d = Math.floor(diff/864e5); diff -= d*864e5;
+  const h = Math.floor(diff/36e5); diff -= h*36e5;
+  const m = Math.floor(diff/6e4); diff -= m*6e4;
+  $('d').textContent = d; $('h').textContent = h; $('m').textContent = m; $('s').textContent = Math.floor(diff/1e3);
+}
+tick(); setInterval(tick, 1000);
+
+// Botón "No" que se escapa
+const no = $('no'), yes = $('yes'), hint = $('hint');
+const frases = ['','¿Seguro? 🤨','Eh, ¿a dónde vas?','Ese botón está roto 😅','Dale, no seas así','Sonia se va a poner triste 🥺','Hay cosmopolitans…','Ya probaste varias veces','No hay opción, ¡rendite!'];
+let intentos = 0;
+function huir(e){
+  if(e) e.preventDefault();
+  intentos++;
+  no.classList.add('run');
+  const w = no.offsetWidth, h = no.offsetHeight, pad = 12;
+  const maxX = innerWidth - w - pad, maxY = innerHeight - h - pad;
+  const yr = yes.getBoundingClientRect();
+  let x, y, t = 0;
+  do {
+    x = pad + Math.random()*Math.max(0, maxX - pad);
+    y = pad + Math.random()*Math.max(0, maxY - pad);
+    t++;
+  } while (t < 20 && x < yr.right+10 && x+w > yr.left-10 && y < yr.bottom+10 && y+h > yr.top-10);
+  no.style.left = x + 'px'; no.style.top = y + 'px';
+  hint.textContent = frases[Math.min(intentos, frases.length-1)];
+  yes.style.transform = 'scale(' + Math.min(1 + intentos*0.06, 1.5) + ')';
+}
+['pointerenter','pointerdown','touchstart','focus','click'].forEach(ev => no.addEventListener(ev, huir, {passive:false}));
+
+// Confeti
+const cv = $('c'), cx = cv.getContext('2d');
+let parts = [], raf = 0;
+function resize(){ cv.width = innerWidth; cv.height = innerHeight; }
+resize(); addEventListener('resize', resize);
+function confeti(){
+  const cols = ['#ff5fa3','#ff6fa5','#ffcf4d','#141414','#ffffff','#dccfb8'];
+  for(let i=0;i<170;i++){
+    parts.push({x:innerWidth/2,y:innerHeight*0.55,vx:(Math.random()-.5)*18,vy:-Math.random()*17-4,
+      s:Math.random()*8+4,c:cols[i%cols.length],r:Math.random()*6,vr:(Math.random()-.5)*.4,life:150});
+  }
+  cancelAnimationFrame(raf); loop();
+}
+function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{
+    p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += p.vr; p.life--;
+    cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle = p.c; cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6); cx.restore();
+  });
+  parts = parts.filter(p => p.life > 0 && p.y < cv.height+20);
+  if(parts.length) raf = requestAnimationFrame(loop); else cx.clearRect(0,0,cv.width,cv.height);
+}
+
+// Paso 1 -> 2 (solo con "Sí")
+yes.addEventListener('click', () => {
+  no.style.display = 'none';
+  confeti();
+  show('s2');
+  setTimeout(() => $('name').focus({preventScroll:true}), 500);
+});
+
+// Paso 2: no se envía sin nombre
+let qty = 1;
+$('plus').onclick = () => { qty = Math.min(6, qty+1); $('qty').textContent = qty; };
+$('minus').onclick = () => { qty = Math.max(1, qty-1); $('qty').textContent = qty; };
+$('name').addEventListener('input', () => { $('send').disabled = $('name').value.trim().length < 2; });
+
+$('send').addEventListener('click', async () => {
+  const nombre = $('name').value.trim();
+  if(nombre.length < 2) return;
+  const btn = $('send');
+  btn.disabled = true; btn.textContent = 'Enviando…'; $('err').textContent = '';
+  const data = {
+    access_key: ACCESS_KEY,
+    subject: 'Confirmó ' + nombre + ' (cumple de Sonia)',
+    from_name: 'Invitación Sonia 30',
+    Nombre: nombre,
+    Personas: qty,
+    Bebida: $('drink').value.trim() || '(no dijo)'
+  };
+  try{
+    if(ACCESS_KEY){
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(data)
+      });
+      const out = await res.json();
+      if(!out.success) throw new Error(out.message || 'error');
+    } else {
+      console.warn('Falta configurar ACCESS_KEY: la confirmación no se envió.');
+    }
+    show('s3'); confeti();
+  }catch(e){
+    $('err').textContent = 'No se pudo enviar. Revisá tu conexión y probá de nuevo.';
+    btn.disabled = false; btn.textContent = 'Confirmar mi lugar';
+  }
+});
+</script>
+</body>
+</html>
