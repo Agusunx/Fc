@@ -324,6 +324,7 @@ ddb.addEventListener('click', () => { const abrir = ddl.hidden; ddl.hidden = !ab
 ddl.addEventListener('change', validar);
 $('name').addEventListener('input', validar);
 document.addEventListener('keydown', e => { if(e.key === 'Escape') cerrarDD(); });
+document.addEventListener('click', e => { if(!e.target.closest('.dd')) cerrarDD(); });
 
 $('send').addEventListener('click', async () => {
   const nombre = $('name').value.trim();
